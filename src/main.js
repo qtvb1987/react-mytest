@@ -3,12 +3,26 @@ import Item from './item';
 
 export default class Main extends React.Component {
     render() {
+        let data = this.props.data;
         return (
-            <table className="main">
+            <table
+                className="main"
+                style={{
+                    display: data.length ? "table" : "none"
+                }}
+
+            >
                 <thead>
                     <tr>
                         <th>
-                            <input type="checkbox" id="checkAll" />
+                            <input
+                                type="checkbox"
+                                id="checkAll"
+                                checked={this.props.isCheckAll}
+                                onChange={(e) => {
+                                    this.props.checkAll(e.target.checked)
+                                }}
+                            />
                             <label htmlFor="checkAll">全选</label>
                         </th>
                         <th>歌曲</th>
@@ -18,11 +32,15 @@ export default class Main extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.data.map((value, index) => {
+                    {data.map((value, index) => {
                         return (
                             <Item
                                 key={index}
                                 data={value}
+                                index={index}
+                                setCheck={this.props.setCheck}
+                                setLike={this.props.setLike}
+                                remove={this.props.remove}
                             />
                         )
                     })}
