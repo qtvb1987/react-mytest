@@ -29,9 +29,9 @@ export default class Item extends React.Component {
                 </td>
                 <td>
 
-                    <a onClick={() => {
+                    <span onClick={() => {
                         this.props.remove(this.props.index)
-                    }}>X</a>
+                    }}>X</span>
                 </td>
             </tr>
         );

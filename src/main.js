@@ -37,7 +37,7 @@ export default class Main extends React.Component {
                             <Item
                                 key={index}
                                 data={value}
-                                index={index}
+                                index={value.id}
                                 setCheck={this.props.setCheck}
                                 setLike={this.props.setLike}
                                 remove={this.props.remove}

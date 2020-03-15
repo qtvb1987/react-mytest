@@ -26,12 +26,18 @@ export default class Footer extends React.Component {
                     style={{
                         display: selectLength ? "inline-block" : "none"
                     }}
+                    onClick={() => {
+                        this.props.removeSelect();
+                    }}
                 ></input>
                 <input
                     type="button"
                     value="收藏选中歌曲"
                     style={{
                         display: selectLength ? "inline-block" : "none"
+                    }}
+                    onClick={() => {
+                        this.props.likeSelect();
                     }}
                 ></input>
                 <input
@@ -40,6 +46,9 @@ export default class Footer extends React.Component {
                     style={{
                         display: selectLength ? "inline-block" : "none"
                     }}
+                    onClick={() => {
+                        this.props.cancelLikeSelect();
+                    }}
                 ></input>
                 <input
                     type="button"
@@ -47,12 +56,18 @@ export default class Footer extends React.Component {
                     style={{
                         display: (listShow && likeLength) ? "inline-block" : "none"
                     }}
+                    onClick={() => {
+                        this.props.showLikeList(false);
+                    }}
                 ></input>
                 <input
                     type="button"
                     value="查看所有清单"
                     style={{
                         display: !listShow ? "inline-block" : "none"
+                    }}
+                    onClick={() => {
+                        this.props.showLikeList(true);
                     }}
                 ></input>
             </footer>
